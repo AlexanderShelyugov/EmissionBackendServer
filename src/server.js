@@ -13,5 +13,5 @@ app.get('/emissionsByCoordinates', (req, res) => {
 });
 
 
-
-app.listen(8000, () => console.log('Example app is listening on port 3000.'));
+const port = 8000
+app.listen(port, () => console.log(`Example app is listening on port ${port}.`));
