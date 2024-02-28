@@ -1,7 +1,12 @@
 const express = require('express');
+const cors = require('cors')
 const { getCoordinates } = require('./emissionCoordinates');
 
-const app = express();
+const app = express()
+    .use(cors({
+        "origin": "*"
+    }))
+
 
 app.get('/', (req, res) => {
     res.send('Successful response.');
