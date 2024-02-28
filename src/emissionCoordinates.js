@@ -109,7 +109,7 @@ const groupByTime = (emissionPoints) => {
     }
 }
 
-const getSomeCoordinates = () => {
+const getCoordinatesCluster = () => {
     const currentMoment = Date.now()
     let moment = currentMoment - PREVIOUS_TIME_DELTA
     const delta = TIME_WINDOW_DELTA
@@ -126,4 +126,4 @@ const getSomeCoordinates = () => {
     return groupByTime(coordinatesBulk)
 }
 
-module.exports.getCoordinates = getSomeCoordinates
+module.exports.getCoordinates = getCoordinatesCluster
