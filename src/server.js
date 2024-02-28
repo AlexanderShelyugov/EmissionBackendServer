@@ -19,7 +19,11 @@ app.get('/emissionsByCoordinates', (req, res) => {
 
 app.get('/unknownMappings', (req, res) => {
     const mappings = getMappingsWithUnknownCodes()
-    res.send(mappings)
+    const mappingIds = getMappingsWithUnknownCodeIds()
+    res.send({
+        ids: mappingIds,
+        mappings: mappings
+    })
 })
 
 app.get('/unknownMappingIds', (req, res) => {
