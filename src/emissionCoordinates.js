@@ -1,24 +1,6 @@
 const _ = require("lodash")
 const { v4: uuidv4 } = require('uuid')
 
-/*
-def generate_data_bulk(timestamp, amount = DEFAULT_BULK_PER_TIMESTAMP):
-result = [generate_data_frame(timestamp) for _ in range(amount)]
-return result
-
-def generate_data_frame(timestamp):
-data_window = {
-    "id": uuid.uuid1(),
-    "time": int(timestamp.timestamp())
-}
-
-generate_geolocation(data_window)
-generate_emission(data_window)
-generate_category(data_window)
-generate_company(data_window)
-return data_window
-*/
-
 const DEFAULT_BULK_PER_TIMESTAMP = 20
 const PREVIOUS_TIME_DELTA = 5 * 1000
 const TIME_WINDOW_DELTA = 1 * 1000
