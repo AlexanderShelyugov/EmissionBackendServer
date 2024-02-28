@@ -72,13 +72,18 @@ const generateLocation = () => {
     return location
 }
 
+const generateAmount = () => {
+    return _.random(20, 2000)
+}
+
 const generateEmissionPoint = (timestamp) => {
     const emissionPoint = {
         id: uuidv4(),
         time: timestamp,
         category: generateCategory(),
         company: generateCompany(),
-        location: generateLocation()
+        location: generateLocation(),
+        emission_amount: generateAmount()
     }
 
     return emissionPoint
