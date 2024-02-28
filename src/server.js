@@ -13,5 +13,5 @@ app.get('/emissionsByCoordinates', (req, res) => {
 });
 
 
-const port = 8000
+const port = process.env.PORT
 app.listen(port, () => console.log(`Example app is listening on port ${port}.`));
