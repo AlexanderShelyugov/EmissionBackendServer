@@ -1,4 +1,5 @@
 const _ = require("lodash")
+const { v4: uuidv4 } = require('uuid')
 
 /*
 def generate_data_bulk(timestamp, amount = DEFAULT_BULK_PER_TIMESTAMP):
@@ -53,7 +54,7 @@ const generateCompany = () => {
 
 const generateEmissionPoint = (timestamp) => {
     const emissionPoint = {
-        id: "someUUID",
+        id: uuidv4(),
         time: timestamp,
         category: generateCategory(),
         company: generateCompany()
