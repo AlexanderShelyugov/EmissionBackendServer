@@ -61,5 +61,18 @@ const getMappingIds = () => {
     return getCurrentMappingIds()
 }
 
+const getMappingsBundle = () => {
+    const mappings = getMappings()
+    const mostRecentTimestamp = _.maxBy(mappings, "timestamp").timestamp
+    const mappingIds = getMappingIds()
+    return {
+        ids: mappingIds,
+        mappings: mappings,
+        mostRecentTimestamp
+    }
+}
+
+
 module.exports.getMappingsWithUnknownCodes = getMappings
 module.exports.getMappingsWithUnknownCodeIds = getMappingIds
+module.exports.getMappingsBundleData = getMappingsBundle

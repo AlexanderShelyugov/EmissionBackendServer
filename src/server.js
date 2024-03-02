@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const { getCoordinates } = require('./emissionCoordinates');
-const { getMappingsWithUnknownCodes, getMappingsWithUnknownCodeIds } = require('./mappingsWithUnknownCode');
+const { getMappingsBundleData, getMappingsWithUnknownCodeIds } = require('./mappingsWithUnknownCode');
 
 const app = express()
     .use(cors({
@@ -23,12 +23,8 @@ app.get('/emissionsByCoordinates', (req, res) => {
 })
 
 app.get('/unknownMappings', (req, res) => {
-    const mappings = getMappingsWithUnknownCodes()
-    const mappingIds = getMappingsWithUnknownCodeIds()
-    res.send({
-        ids: mappingIds,
-        mappings: mappings
-    })
+    const mappingsData = getMappingsBundleData()
+    res.send(mappingsData)
 })
 
 app.get('/unknownMappingIds', (req, res) => {
