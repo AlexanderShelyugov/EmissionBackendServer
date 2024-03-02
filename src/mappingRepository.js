@@ -12,7 +12,6 @@ const getMappings = () => {
 
 const addMapping = (mapping) => {
     if (currentMappings.length > MAX_MAPPINGS_IN_STORAGE) {
-        currentMappings.
         currentMappings = []
         currentMappingIds = []
     }
