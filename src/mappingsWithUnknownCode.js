@@ -62,7 +62,7 @@ const getMappingIds = () => {
 }
 
 const getMappingsBundle = () => {
-    const mappings = getMappings()
+    const mappings = _.sortBy(getMappings(), "timestamp").reverse()
     const mostRecentTimestamp = _.maxBy(mappings, "timestamp").timestamp
     const mappingIds = getMappingIds()
     return {
