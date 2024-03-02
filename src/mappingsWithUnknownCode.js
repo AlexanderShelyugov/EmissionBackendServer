@@ -3,7 +3,7 @@ const { v4: uuidv4 } = require('uuid')
 const { getCurrentMappingIds, getCurrentMappings, storeMappings } = require("./mappingRepository")
 
 const DEFAULT_NEW_MAPPINGS_IN_BULK = 12
-const MAPPINGS_MAX_DELAY_SECONDS = 4
+const MAPPINGS_MAX_DELAY_SECONDS = 8
 
 const tools = [
     "Kool",
