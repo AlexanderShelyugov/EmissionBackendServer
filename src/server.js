@@ -8,6 +8,11 @@ const app = express()
         "origin": "*"
     }))
 
+app.get('/*', function (req, res, next) {
+    res.setHeader('Last-Modified', (new Date()).toUTCString());
+    next();
+})
+
 app.get('/', (req, res) => {
     res.send('Successful response.');
 })
