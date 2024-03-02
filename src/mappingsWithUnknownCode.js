@@ -33,18 +33,20 @@ const generateDescription = () => {
     return generateRandomString(20)
 }
 
-const generateMapping = () => {
+const generateMapping = (timestamp) => {
     return {
         id: uuidv4(),
         tool: generateTool(),
         codeFromTool: generateCodeFromTool(),
-        description: generateDescription()
+        description: generateDescription(),
+        timestamp
     }
 }
 
 const generateMappings = () => {
+    const timestamp = Date.now()
     const bulkAmount = _.random(1, DEFAULT_NEW_MAPPINGS_IN_BULK)
-    const mappingsBulk = Array.from({ length: bulkAmount }, () => generateMapping())
+    const mappingsBulk = Array.from({ length: bulkAmount }, () => generateMapping(timestamp))
 
     storeMappings(mappingsBulk)
 }
