@@ -17,6 +17,10 @@ app.get('/', (req, res) => {
     res.send('Successful response.');
 })
 
+app.get('/health', (req, res) => {
+    res.send('{ "status": "OK" }')
+})
+
 app.get('/emissionsByCoordinates', (req, res) => {
     const coordinates = getCoordinates()
     res.send(coordinates)
