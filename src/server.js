@@ -6,7 +6,8 @@ const { getMappingsBundleData, getMappingsWithUnknownCodeIds } = require('./mapp
 const app = express()
     .use(cors({
         "origin": "*"
-    }))
+    })
+)
 
 app.get('/*', function (req, res, next) {
     res.setHeader('Last-Modified', (new Date()).toUTCString());
@@ -34,6 +35,14 @@ app.get('/unknownMappings', (req, res) => {
 app.get('/unknownMappingIds', (req, res) => {
     const mappingIds = getMappingsWithUnknownCodeIds()
     res.send(mappingIds)
+})
+
+app.post('/mappings', express.json(), (req, res) => {
+    if (!req.body) return response.sendStatus(400)
+
+    console.log("Saved all mappings")
+    console.log(req.body)
+    res.sendStatus(200)
 })
 
 const port = process.env.PORT
