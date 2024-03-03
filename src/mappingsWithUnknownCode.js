@@ -1,6 +1,6 @@
 const _ = require("lodash")
 const { v4: uuidv4 } = require('uuid')
-const { getCurrentMappingIds, getCurrentMappings, storeMappings } = require("./mappingRepository")
+const { getCurrentMappingIds, getCurrentMappings, storeMappings, getKnownMappings } = require("./mappingRepository")
 
 const DEFAULT_NEW_MAPPINGS_IN_BULK = 12
 const MAPPINGS_MAX_DELAY_SECONDS = 8
@@ -61,6 +61,10 @@ const getMappingIds = () => {
     return getCurrentMappingIds()
 }
 
+const storeKnownMappingsFn = (mappings) => {
+    storeKnownMappings(mappings)
+}
+
 const getMappingsBundle = () => {
     const mappings = _.sortBy(getMappings(), "timestamp").reverse()
     const mostRecentTimestamp = _.maxBy(mappings, "timestamp").timestamp
@@ -72,7 +76,8 @@ const getMappingsBundle = () => {
     }
 }
 
-
 module.exports.getMappingsWithUnknownCodes = getMappings
 module.exports.getMappingsWithUnknownCodeIds = getMappingIds
 module.exports.getMappingsBundleData = getMappingsBundle
+module.exports.storeKnownMappings = storeKnownMappingsFn
+module.exports.retrieveKnownMappings = getKnownMappings
