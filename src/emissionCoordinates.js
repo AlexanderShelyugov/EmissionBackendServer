@@ -1,7 +1,7 @@
 const _ = require("lodash")
 const { v4: uuidv4 } = require('uuid')
 
-const DEFAULT_BULK_PER_TIMESTAMP = 20
+const DEFAULT_BULK_PER_TIMESTAMP = 200
 const PREVIOUS_TIME_DELTA = 5 * 1000
 const TIME_WINDOW_DELTA = 1 * 1000
 
@@ -85,7 +85,7 @@ const groupByTime = (emissionPoints) => {
         .sort()
 
     return {
-        "data": groupedData,
+        "partitionsByTime": groupedData,
         "min_time": _.min(allTimestamps),
         "max_time": _.max(allTimestamps)
     }
