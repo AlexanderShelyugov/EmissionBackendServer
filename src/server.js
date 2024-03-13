@@ -55,7 +55,7 @@ app.post("/mappings", express.json(), (req, res) => {
   res.sendStatus(200);
 });
 
-app.get('/data/ranges', function(req, res){
+app.get('/api/v0/data/ranges', function(req, res){
     const file = `${__dirname}/samples/responseSample.json`;
     res.sendFile(file); // Set disposition and send it.
   });
