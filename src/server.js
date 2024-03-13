@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const { getCoordinates } = require("./emissionCoordinates");
+const { sampleEmissionData } = require("./sampleEmissions");
 const {
   getMappingsBundleData,
   getMappingsWithUnknownCodeIds,
@@ -56,8 +57,8 @@ app.post("/mappings", express.json(), (req, res) => {
 });
 
 app.get('/api/v0/data/ranges', function(req, res){
-    const file = `./samples/responseSample.json`;
-    res.sendFile(file); // Set disposition and send it.
+    // const data = JSON.parse(sampleEmissionData)
+    res.contentType('application/json').send(sampleEmissionData);
   });
 
 const port = process.env.PORT;

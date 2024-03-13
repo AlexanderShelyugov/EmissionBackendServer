@@ -108,4 +108,5 @@ const getCoordinatesCluster = () => {
     return groupByTime(coordinatesBulk)
 }
 
+
 module.exports.getCoordinates = getCoordinatesCluster
