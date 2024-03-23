@@ -77,6 +77,14 @@ app.post("/files", upload.array("files", 12), (req, res) => {
   res.sendStatus(200);
 });
 
+app.post("/reports", express.json(), (req, res) => {
+  if (!req.body) return res.sendStatus(400);
+
+  console.log("Generating report:");
+  console.log(req.body);
+  res.sendStatus(200);
+});
+
 const port = process.env.PORT;
 app.listen(port, () =>
   console.log(`Example app is listening on port ${port}.`)
