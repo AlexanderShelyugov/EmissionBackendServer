@@ -78,7 +78,13 @@ app.post("/files", upload.array("files", 12), (req, res) => {
 });
 
 app.post("/reports", express.json(), (req, res) => {
-  if (!req.body) return res.sendStatus(400);
+  if (!req.body) {
+    const msg = "We don't see body";
+    console.log(msg);
+    res.statusMessage = msg;
+    res.status(400).end();
+    return
+  } 
 
   console.log("Generating report:");
   console.log(req.body);
