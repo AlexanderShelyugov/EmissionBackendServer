@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const multer = require("multer");
 const { getCoordinates } = require("./emissionCoordinates");
 const { sampleEmissionData } = require("./sampleEmissions");
 const {
@@ -8,6 +9,7 @@ const {
   retrieveKnownMappings,
 } = require("./mappingsWithUnknownCode");
 const path = require("path");
+const upload = multer({ dest: "uploads/" });
 
 const app = express().use(
   cors({
@@ -49,17 +51,31 @@ app.get("/knownMappings", (req, res) => {
 });
 
 app.post("/mappings", express.json(), (req, res) => {
-  if (!req.body) return response.sendStatus(400);
+  if (!req.body) return res.sendStatus(400);
 
   console.log("Saved all mappings");
   console.log(req.body);
   res.sendStatus(200);
 });
 
-app.get('/api/v0/data/ranges', function(req, res){
-    // const data = JSON.parse(sampleEmissionData)
-    res.contentType('application/json').send(sampleEmissionData);
-  });
+app.get("/api/v0/data/ranges", function (req, res) {
+  // const data = JSON.parse(sampleEmissionData)
+  res.contentType("application/json").send(sampleEmissionData);
+});
+
+app.post("/files", upload.array("files", 12), (req, res) => {
+  console.log("Body received: ", req.body);
+  if (!req.body) {
+    res.statusMessage = "No files received";
+    res.status(400).end();
+    return;
+  }
+
+  console.log("==== Received data ====");
+  console.log(req.body);
+  console.log("==== End received data ====");
+  res.sendStatus(200);
+});
 
 const port = process.env.PORT;
 app.listen(port, () =>
