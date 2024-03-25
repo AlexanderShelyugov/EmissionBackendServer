@@ -33,7 +33,7 @@ const emissions = [
               registration: "RC Agadir 51395",
               address: "20 avenue du Roi, Rabat, Maroc"
             },
-            image: "/images/entity/77c15a3c-a676-41b5-91f6-42a1d6e6178c.jpg"
+            image: "https://centralguide.net/wp-content/uploads/2018/04/Walmart-Corporate-Office-300x227.jpg"
           },
           {
             id: 2,
@@ -50,7 +50,7 @@ const emissions = [
               registration: "RC Casablanca 20394",
               address: "50 Boulevard de la Corniche, Casablanca, Maroc"
             },
-            image: "/images/entity/2b592a3c-a123-41b5-91f6-42a1d6e6178c.jpg"
+            image: "https://www.pickardchilton.com/sites/default/files/styles/thumbnail/public/1606_N388_512r.jpg"
           },
           {
             id: 3,
@@ -62,7 +62,8 @@ const emissions = [
               ownOperation: false,
               registration: "Manosque B 341 897 254",
               address: "Z.A. des moulins à vent\n11 espace Saint-Pierre"
-            }
+            },
+            image: "https://dev-13sqft.s3.ap-south-1.amazonaws.com/blogs/1619781438Warehouse-Design.jpg"
           },
           {
             id: 4,
@@ -78,7 +79,8 @@ const emissions = [
               capital: true,
               registration: "Manosque B 338 635 063",
               address: "Z.A. des moulins à vent\n11 espace Saint-Pierre"
-            }
+            },
+            image: "https://images.adsttc.com/media/images/5bda/0a95/f197/cc45/e900/0258/large_jpg/DYP_NWKA_BDA_04.jpg"
           },
           {
             id: 5,
@@ -176,7 +178,8 @@ const emissions = [
               capital: true,
               registration: "Carnaxide 507188365",
               address: "123 Avenida da Liberdade, Lisbon, Portugal"
-            }
+            },
+            image: "https://cdn.techwireasia.com/wp-content/uploads/2023/08/How-modern-agriculture-technology-embraces-photovoltaics-e1690881709902-897x500.jpg"
           },
           {
             id: 17,
@@ -188,7 +191,8 @@ const emissions = [
               ownOperation: false,
               registration: "P.Iva 02722220346",
               address: "22 Via del Corso, Roma, Italy"
-            }
+            },
+            image: "https://i.pinimg.com/originals/40/71/92/4071922ce9e18605e89d76ff5b366215.jpg"
           },
           {
             id: 18,
@@ -200,7 +204,8 @@ const emissions = [
               ownOperation: false,
               registration: "Paris B 444 786 511",
               address: "6 rue Condorcet, 75009 Paris, France"
-            }
+            },
+            image: "https://3.bp.blogspot.com/-QX_kv9VpRNs/WRUUbf8l0PI/AAAAAAAAAIk/Q1ydNF5_RqEWkyvFc2-2ICR3xis48r86gCLcB/s1600/tokyo-rice-paddy-in-office.jpg"
           }
         ],
         area: [
