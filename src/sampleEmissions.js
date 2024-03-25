@@ -1267,10 +1267,11 @@ const emissions = [
   ]
 
 const categoriesToIgnore = [32, 38, 41]
+const areas = [4, 5, 9, 10, 12, 13, 16, 17, 18]
 
 const generateDataPoint = () => {
   const randomCompany = _.random(1, 18)
-  const randomArea = _.random(1, 19)
+  const randomArea = _.sample(areas)
   const randomBegesCategory = _.random(32, 56)
   const randomAmount = _.random(.0001, 2, true)
   const randomSlot = _.random(2, 10)
