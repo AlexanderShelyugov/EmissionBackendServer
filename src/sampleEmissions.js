@@ -1,3 +1,5 @@
+const _ = require("lodash")
+
 const emissions = [
     {
       time_range: {
@@ -1264,4 +1266,37 @@ const emissions = [
     }
   ]
 
+const categoriesToIgnore = [32, 38, 41]
+
+const generateDataPoint = () => {
+  const randomCompany = _.random(1, 18)
+  const randomArea = _.random(1, 19)
+  const randomBegesCategory = _.random(32, 56)
+  const randomAmount = _.random(.1, 2)
+  const randomSlot = _.random(2, 10)
+  const randomDelta = _.random(1, 10)
+  return [
+    randomSlot,
+    0.4,
+    randomAmount,
+    randomSlot + randomDelta,
+    0.6,
+    randomCompany,
+    randomArea,
+    18,
+    categoriesToIgnore.includes(randomBegesCategory) ? randomBegesCategory + 1 : randomBegesCategory
+  ]
+}
+
+const generateData = () => {
+  let a = 0
+  const newDataPoints = []
+  while (a < 100) {
+    newDataPoints.push(generateDataPoint())
+    a++
+  }
+  return [{...emissions[0], data: newDataPoints}]
+}
+
 module.exports.sampleEmissionData = emissions
+module.exports.appendSomeData = generateData

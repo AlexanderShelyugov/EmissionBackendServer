@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const multer = require("multer");
 const { getCoordinates } = require("./emissionCoordinates");
-const { sampleEmissionData } = require("./sampleEmissions");
+const { sampleEmissionData, appendSomeData } = require("./sampleEmissions");
 const {
   getMappingsBundleData,
   getMappingsWithUnknownCodeIds,
@@ -60,7 +60,7 @@ app.post("/mappings", express.json(), (req, res) => {
 
 app.get("/api/v0/data/ranges", function (req, res) {
   // const data = JSON.parse(sampleEmissionData)
-  res.contentType("application/json").send(sampleEmissionData);
+  res.contentType("application/json").send(appendSomeData());
 });
 
 app.post("/files", upload.array("files", 12), (req, res) => {
