@@ -1294,14 +1294,21 @@ const generateDataPoint = () => {
   ]
 }
 
-const generateData = () => {
+const generateData = (start, end) => {
   let a = 0
   const newDataPoints = []
   while (a < 100) {
     newDataPoints.push(generateDataPoint())
     a++
   }
-  return [{...emissions[0], data: newDataPoints}]
+  const resultDataCube = {...emissions[0], data: newDataPoints}
+  if (start && start instanceof Date && !isNaN(start)) {
+    resultDataCube.time_range.start = start
+  }
+  if (end && end instanceof Date && !isNaN(end)) {
+    resultDataCube.time_range.end = end
+  }
+  return [resultDataCube]
 }
 
 module.exports.sampleEmissionData = emissions

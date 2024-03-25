@@ -58,9 +58,9 @@ app.post("/mappings", express.json(), (req, res) => {
   res.sendStatus(200);
 });
 
-app.get("/api/v0/data/ranges", function (req, res) {
-  // const data = JSON.parse(sampleEmissionData)
-  res.contentType("application/json").send(appendSomeData());
+app.get("/api/v0/data/ranges", express.json(), function (req, res) {
+  const {start, end} = JSON.parse(req.query.time_ranges)[0]
+  res.contentType("application/json").send(appendSomeData(new Date(start), new Date(end)));
 });
 
 app.post("/files", upload.array("files", 12), (req, res) => {
